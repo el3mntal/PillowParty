@@ -13,6 +13,8 @@ public class controllerPersonaje : MonoBehaviour
     private CharacterController controladorPersonaje;
     private Vector3 movimientoDireccion;
     private float gravedad = 9.8f;
+    //variable para bloquear al personaje
+    public PausaControlador PausaC;
 
     //Trampolin
     private float fuerzaTrampolin = 40f;
@@ -37,6 +39,13 @@ public class controllerPersonaje : MonoBehaviour
     //Metodo Personaje
     void MoverPersonaje()
     {
+        //condicional para detenar al personaje
+        if (PausaC.Pausa == true)
+        {
+            return;
+        }
+
+
         inputHorizontal = Input.GetAxisRaw("Horizontal");
 
         movimientoDireccion.z = inputHorizontal * velocidad;

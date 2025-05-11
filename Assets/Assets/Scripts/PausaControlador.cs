@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PausaControlador : MonoBehaviour
 {
     public GameObject CuadroPausa;
+    public bool Pausa;
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +23,14 @@ public class PausaControlador : MonoBehaviour
     //metodo para que se active el recuadro de pausa
     public void BotonPausar() 
     {
+        Pausa = true;
         CuadroPausa.SetActive(true);
     }
 
     //metodo para que se desactive el recuadro de pausa
     public void BontonReanudar()
     {
+        Pausa = false;
         CuadroPausa.SetActive(false);
     }
 
